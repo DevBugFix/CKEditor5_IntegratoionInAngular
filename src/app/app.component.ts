@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ckeditorAngular10';
+
+  public htmlData: string = "helo"
+
+  constructor() {
+    setInterval(() => {
+      console.log("", this.htmlData)
+    }, 2000)
+  }
+
+
+  ngOnInit(): void {
+  }
+
+
 }

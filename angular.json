@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "ckeditorAngular10"
+    }
+  },
+  "defaultProject": "ckeditorAngular10",
+  "cli": {
+    "analytics": false
+  }
 }
