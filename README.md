@@ -1,8 +1,12 @@
-# CkeditorAngular10
+# CKEditor 5 in Angular10 Demo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.4.
 
-## Development server
+### In this demo Project I configured the CKEditor 5 Custom Build from Online Builder and Github  repo
+
+### you can see the demo video On youtube of this Repo  https://youtu.be/HsjCkvEvQhA
+
+## Development server 
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
