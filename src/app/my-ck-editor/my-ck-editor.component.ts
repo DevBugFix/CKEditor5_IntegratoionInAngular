@@ -75,6 +75,13 @@ export class MyCkEditorComponent implements OnInit, ControlValueAccessor {
       shouldNotGroupWhenFull: true,
 
     },
+    simpleUpload: {
+      // The URL that the images are uploaded to.
+      uploadUrl: 'http://localhost:52536/api/Image/ImageUpload',
+
+      // Enable the XMLHttpRequest.withCredentials property.
+
+  },
     // This value must be kept in sync with the language defined in webpack.config.js.
     language: 'en'
   };

@@ -41,6 +41,7 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
-    "@ckeditor/ckeditor5-list": "^24.0.0"
+    "@ckeditor/ckeditor5-list": "^24.0.0",
+    "@ckeditor/ckeditor5-upload": "^24.0.0"
   }
 }
