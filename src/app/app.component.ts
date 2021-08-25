@@ -7,8 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  public htmlData: string = "helo"
-
+  public htmlData: string = "hello"
+  public readonly: boolean = true;
   constructor() {
     setInterval(() => {
       console.log("", this.htmlData)

@@ -1,1 +1,2 @@
-<ckeditor [editor]="Editor" [config]='config' [(ngModel)]="value"></ckeditor>
+<ckeditor [editor]="Editor" [config]='config' [disabled]="readonly" [(ngModel)]="value" (ready)="onReady($event)">
+</ckeditor>

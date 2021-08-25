@@ -1,4 +1,4 @@
-import { Component, OnInit, forwardRef } from '@angular/core';
+import { Component, OnInit, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import * as customBuild from '../ckCustomBuild/build/ckEditor';
 
@@ -17,6 +17,7 @@ import * as customBuild from '../ckCustomBuild/build/ckEditor';
 export class MyCkEditorComponent implements OnInit, ControlValueAccessor {
 
   public Editor = customBuild;
+  @Input() readonly: boolean = false;
 
   private _value: string = '';
 
@@ -54,7 +55,7 @@ export class MyCkEditorComponent implements OnInit, ControlValueAccessor {
   }
 
   title = 'ckeditorAngular10';
-  public config = {
+  @Input() config = {
     toolbar: {
       items: [
         'heading', '|',
@@ -75,15 +76,60 @@ export class MyCkEditorComponent implements OnInit, ControlValueAccessor {
       shouldNotGroupWhenFull: true,
 
     },
-    simpleUpload: {
-      // The URL that the images are uploaded to.
-      uploadUrl: 'http://localhost:52536/api/Image/ImageUpload',
+    image: {
+      // Configure the available styles.
+      styles: [
+        'alignLeft', 'alignCenter', 'alignRight'
+      ],
 
-      // Enable the XMLHttpRequest.withCredentials property.
+      // Configure the available image resize options.
+      resizeOptions: [
+        {
+          name: 'resizeImage:original',
+          label: 'Original',
+          value: null
+        },
+        {
+          name: 'resizeImage:50',
+          label: '25%',
+          value: '25'
+        },
+        {
+          name: 'resizeImage:50',
+          label: '50%',
+          value: '50'
+        },
+        {
+          name: 'resizeImage:75',
+          label: '75%',
+          value: '75'
+        }
+      ],
 
-  },
-    // This value must be kept in sync with the language defined in webpack.config.js.
+      // You need to configure the image toolbar, too, so it shows the new style
+      // buttons as well as the resize buttons.
+      toolbar: [
+        'imageStyle:alignLeft', 'imageStyle:alignCenter', 'imageStyle:alignRight',
+        '|',
+        'ImageResize',
+        '|',
+        'imageTextAlternative'
+      ]
+    },
+    // simpleUpload: {
+    //    The URL that the images are uploaded to.
+    // uploadUrl: 'http://localhost:52536/api/Image/ImageUpload',
+
+    //   Enable the XMLHttpRequest.withCredentials property.
+
+    //},
+
     language: 'en'
   };
 
+  onReady(editor) {
+    if (editor.model.schema.isRegistered('image')) {
+      editor.model.schema.extend('image', { allowAttributes: 'blockIndent' });
+    }
+  }
 }
